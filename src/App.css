@@ -5,8 +5,8 @@
 }
 
 .ant-layout-header {
-    height: 100px!important;
-    line-height: 100px!important;
+    height: 85px!important;
+    line-height: 85px!important;
 }
 
 .ant-layout-content {
@@ -14,9 +14,8 @@
 }
 
 .logo {
-    width: 140px;
-    height: 65px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 50px 16px 0;
+    width: 199.5px;
+    height: 50px;
+    margin: 18px 30px 17px 0;
     float: left;
 }

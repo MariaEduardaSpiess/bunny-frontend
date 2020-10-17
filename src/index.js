@@ -3,24 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css'; 
-import AppLogin from './paginas/login';
 import App from './App';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route path="/" exact>
-        <AppLogin />
-      </Route>
-      <Route path="/login">
-        <AppLogin />
-      </Route>
-      <Route path="/home">
-        <App />
-      </Route>
-    </Switch>
-  </Router>,
+  <App />,
   document.getElementById('root')
 );
 

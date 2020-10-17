@@ -2,18 +2,16 @@ import React from 'react';
 import './App.css';
 import Routes from './routes';
 import { Layout } from 'antd';
-import AppMenu from './componentes/menu';
 import { BrowserRouter as Router } from 'react-router-dom';
-import logo from './Stryker.png';
+import logo from './bunny.png';
 
 function App() {
   const { Header, Content, Footer } = Layout;
   return (
     <Router>
-      <Layout className="layout">
+      <Layout>
         <Header>
-          <img className="logo" src={logo} />
-          <AppMenu/>
+          <a href="/"><img className="logo" src={logo} alt="Logo" /></a>
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
