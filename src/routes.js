@@ -9,9 +9,9 @@ function Routes() {
     return (
         <Switch>
             <Route path="/" exact={true} component={User} />
-            <Route path="/add-user" exact={true} component={AddUser} />
+            <Route path="/add-user/:user" exact={true} component={AddUser} />
             <Route path="/user-tasks/:user" exact={true} component={UserTask} />
-            <Route path="/add-task/:user" exact={true} component={AddUserTask} />
+            <Route path="/add-task/:user/:task" exact={true} component={AddUserTask} />
         </Switch>
     )
 }

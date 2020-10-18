@@ -8,20 +8,24 @@ const { Option } = Select;
 function AddUserTask() {
 
     const [form] = Form.useForm();
-    let { user } = useParams();
-    user = JSON.parse(user);
+    let { user, task } = useParams();
+    if (user) {
+        user = JSON.parse(user);
+    }
+    if (task) {
+        task = JSON.parse(task);
+    }
     const history = useHistory();
     
     const onFinish = values => {
-        api.post('user-task?user=' + user.id, values).then(response => {
-            console.log('Top!');
-            history.push('/user-tasks/' + JSON.stringify(user));
-        });
+        api.post('user-task?user=' + user.id, values)
+            .then(() => history.push('/user-tasks/' + JSON.stringify(user)))
+            .catch((error) => console.error(error));
     };
 
     return (
         <div>
-            <Form form={form} layout="vertical" onFinish={onFinish}>
+            <Form form={form} layout="vertical" onFinish={onFinish} initialValues={task}>
                 <Row gutter={16}>
                     <Col span={24}>
                         <Form.Item label="Description" name="description" rules={[{ required: true }]}>

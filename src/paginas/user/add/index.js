@@ -1,18 +1,22 @@
 import React from 'react';
 import api from '../../../services/api';
 import { Form, Input, Button, Row, Col } from 'antd';
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 function AddUser() {
 
     const [form] = Form.useForm();
     const history = useHistory();
+    let { user } = useParams();
+    if (user) {
+        user = JSON.parse(user);
+    }
     
     const onFinish = values => {
-        api.post('user', values).then(response => {
-            console.log('Top!');
-            history.push('/');
-        });
+        values.id = user?.id;
+        api.post('user', values)
+            .then(() => history.push('/'))
+            .catch((error) => console.error(error));
     };
 
     return (
@@ -20,8 +24,8 @@ function AddUser() {
             <Form form={form} layout="vertical" onFinish={onFinish}>
                 <Row gutter={16}>
                     <Col span={24}>
-                        <Form.Item label="Name" name="name" rules={[{ required: true }]}>
-                            <Input />
+                        <Form.Item label="Name" name="name" initialValue={user?.name} rules={[{ required: true }]}>
+                            <Input/>
                         </Form.Item>        
                     </Col>
                 </Row>
