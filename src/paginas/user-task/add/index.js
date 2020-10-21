@@ -18,6 +18,7 @@ function AddUserTask() {
     const history = useHistory();
     
     const onFinish = values => {
+        values.id = task?.id;
         api.post('user-task?user=' + user.id, values)
             .then(() => history.push('/user-tasks/' + JSON.stringify(user)))
             .catch((error) => console.error(error));
