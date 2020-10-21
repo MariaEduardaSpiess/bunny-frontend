@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import User from './paginas/user';
-import AddUser from './paginas/user/add';
-import UserTask from './paginas/user-task';
-import AddUserTask from './paginas/user-task/add';
+import User from './pages/user';
+import AddUser from './pages/user/add';
+import UserTask from './pages/user-task';
+import AddUserTask from './pages/user-task/add';
 
 function Routes() {
     return (
